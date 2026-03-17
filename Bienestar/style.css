@@ -8,7 +8,25 @@
     --border-color: #dee2e6;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+.contenedor-boton {
+    text-align: center; /* Esto centra el botón horizontalmente */
+    margin-top: 20px;   /* Un poco de espacio arriba */
+}
 
+.btn-ver-mas {
+    background-color: #28a745; /* Color verde */
+    color: white;              /* Texto blanco */
+    padding: 10px 20px;        /* Relleno interno (arriba/abajo, izquierda/derecha) */
+    border: none;              /* Quita el borde por defecto */
+    border-radius: 5px;        /* Bordes redondeados */
+    font-size: 16px;           /* Tamaño de letra */
+    cursor: pointer;           /* Cambia el cursor a una mano al pasar por encima */
+    transition: background 0.3s; /* Suaviza el cambio de color */
+}
+
+.btn-ver-mas:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el mouse */
+}
 .dark-mode {
     --bg-color: #121212;
     --text-color: #ffffff;
