@@ -235,3 +235,186 @@ footer {
         width: 100%;
     }
 }
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* SCROLL SUAVE */
+html {
+  scroll-behavior: smooth;
+}
+
+/* CONTENEDOR GENERAL */
+.contenedor {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.seccion-productos {
+  padding: 60px 20px;
+  background-color: #f5f6f8;
+}
+
+/* TITULOS */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.subtitulo {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* GRID DE PRODUCTOS */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* CARD PRODUCTO */
+.card-producto {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-producto:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* IMAGEN */
+.card-producto img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* TEXTO */
+.card-producto h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.card-producto p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* PRECIO */
+.precio {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #e63946;
+  margin-bottom: 10px;
+}
+
+/* BOTONES */
+button {
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-comprar {
+  background: #ff9900;
+  color: #fff;
+}
+
+.btn-comprar:hover {
+  background: #e68a00;
+}
+
+/* PROMO */
+.promo {
+  background: linear-gradient(135deg, #ff9900, #ff5e00);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 12px;
+  margin: 50px 0;
+}
+
+.btn-oferta {
+  background: #fff;
+  color: #ff5e00;
+  margin-top: 15px;
+}
+
+.btn-oferta:hover {
+  background: #f1f1f1;
+}
+
+/* TESTIMONIOS */
+.testimonios {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.grid-testimonios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card-testimonio {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  font-style: italic;
+  border: 1px solid #eee;
+  transition: 0.3s;
+}
+
+.card-testimonio:hover {
+  transform: scale(1.03);
+}
+
+/* CTA FINAL */
+.cta-final {
+  margin-top: 60px;
+  text-align: center;
+  padding: 40px 20px;
+  background: #222;
+  color: white;
+  border-radius: 12px;
+}
+
+.btn-principal {
+  background: #ff9900;
+  color: white;
+  margin-top: 15px;
+}
+
+.btn-principal:hover {
+  background: #e68a00;
+}
+
+/* RESPONSIVE EXTRA */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .card-producto {
+    padding: 10px;
+  }
+}
