@@ -49,3 +49,29 @@ form.addEventListener('submit', (e) => {
         formMessage.textContent = '';
     }, 5000);
 });
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+function mostrarSlide(i) {
+  slides.forEach(slide => slide.classList.remove("activo"));
+  slides[i].classList.add("activo");
+}
+
+function siguienteSlide() {
+  index++;
+  if (index >= slides.length) index = 0;
+  mostrarSlide(index);
+}
+
+function anteriorSlide() {
+  index--;
+  if (index < 0) index = slides.length - 1;
+  mostrarSlide(index);
+}
+
+/* BOTONES */
+document.querySelector(".next").addEventListener("click", siguienteSlide);
+document.querySelector(".prev").addEventListener("click", anteriorSlide);
+
+/* AUTO PLAY */
+setInterval(siguienteSlide, 5000);
