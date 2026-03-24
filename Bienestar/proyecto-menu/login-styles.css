@@ -1,0 +1,246 @@
+/* --- Variables Personalizadas --- */
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --gradient-start: #2563eb;
+    --gradient-end: #7c3aed;
+    --card-radius: 20px;
+    --input-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+/* --- Estilos Generales --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* --- Navbar --- */
+.navbar {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+/* --- Sección Login --- */
+.login-section {
+    padding-top: 80px; /* Espacio para navbar fija */
+    padding-bottom: 40px;
+}
+
+/* --- Tarjeta de Login --- */
+.login-card {
+    border-radius: var(--card-radius);
+    background: white;
+    overflow: hidden;
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Icono Principal --- */
+.login-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.login-icon i {
+    font-size: 3rem;
+    color: white;
+}
+
+/* --- Formularios --- */
+.form-label {
+    font-size: 0.9rem;
+    color: #4b5563;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    border-radius: var(--input-radius);
+    border: 2px solid #e5e7eb;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.input-group {
+    border-radius: var(--input-radius);
+    overflow: hidden;
+}
+
+.input-group .form-control {
+    border-right: none;
+    border-radius: var(--input-radius) 0 0 var(--input-radius);
+}
+
+.input-group .btn {
+    border-radius: 0 var(--input-radius) var(--input-radius) 0;
+    border-left: none;
+}
+
+/* --- Toggle Password --- */
+.toggle-password {
+    background-color: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-left: none;
+    transition: var(--transition);
+}
+
+.toggle-password:hover {
+    background-color: #e5e7eb;
+}
+
+/* --- Checkbox Personalizado --- */
+.form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+    border: 2px solid #d1d5db;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* --- Botón Principal --- */
+.login-btn {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    border: none;
+    border-radius: var(--input-radius);
+    padding: 0.875rem;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+    background: linear-gradient(135deg, var(--primary-hover), #6d28d9);
+}
+
+.login-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.login-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Efecto de brillo en hover */
+.login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.login-btn:hover::before {
+    left: 100%;
+}
+
+/* --- Botones Sociales --- */
+.social-btn {
+    border-radius: var(--input-radius);
+    padding: 0.625rem;
+    font-weight: 500;
+    transition: var(--transition);
+    border: 2px solid #e5e7eb;
+}
+
+.social-btn:hover {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Responsive --- */
+@media (max-width: 576px) {
+    .login-card .card-body {
+        padding: 2rem 1.5rem !important;
+    }
+    
+    .login-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .login-icon i {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* --- Validación --- */
+.was-validated .form-control:valid {
+    border-color: #10b981;
+}
+
+.was-validated .form-control:invalid {
+    border-color: #ef4444;
+}
+
+/* --- Mensaje de Error/Éxito --- */
+.alert {
+    border-radius: var(--input-radius);
+    border: none;
+    font-size: 0.9rem;
+}
+
+/* --- Animación de Shake para errores --- */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}

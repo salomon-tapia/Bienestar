@@ -1,0 +1,171 @@
+/* --- 1. Variables y Reset --- */
+:root {
+    --header-height: 4rem;
+    --color-bg: #ffffff;
+    --color-bg-sticky: #ffffff; /* Fondo cuando se hace scroll */
+    --color-text: #333333;
+    --color-primary: #2563eb; /* Azul minimalista */
+    --color-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    --font-main: system-ui, -apple-system, sans-serif;
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* --- 2. Estructura del Header --- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent; /* Transparente al inicio */
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+/* Clase que añadiremos con JS al hacer scroll */
+.header.scrolled {
+    background-color: var(--color-bg-sticky);
+    box-shadow: var(--color-shadow);
+    backdrop-filter: blur(10px); /* Efecto vidrio moderno */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.nav {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- 3. Logo y Enlaces --- */
+.nav-logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-text);
+    letter-spacing: -0.5px;
+}
+.nav-logo span { color: var(--color-primary); }
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+/* Efecto hover minimalista (línea inferior) */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--color-primary);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after { width: 100%; }
+
+/* Botón CTA (Call to Action) */
+.nav-cta {
+    background-color: var(--color-text);
+    color: #fff;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    margin-left: 1rem;
+}
+
+.nav-cta:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+/* --- 4. Menú Hamburguesa (Oculto en Desktop) --- */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-text);
+    transition: var(--transition);
+}
+
+/* --- 5. Responsividad (Mobile) --- */
+@media screen and (max-width: 768px) {
+    .nav-toggle { display: flex; }
+
+    .nav-menu {
+        position: fixed;
+        top: var(--header-height);
+        left: -100%; /* Oculto a la izquierda */
+        width: 100%;
+        height: calc(100vh - var(--header-height));
+        background-color: var(--color-bg);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Clase activa para mostrar menú */
+    .nav-menu.show-menu {
+        left: 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    .nav-cta {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+
+    /* Animación del icono hamburguesa a X */
+    .nav-toggle.active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .nav-toggle.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-toggle.active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
